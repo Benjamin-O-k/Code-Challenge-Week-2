@@ -1,33 +1,52 @@
-const shopping = [];
-function addItem(){
-    let item = document.getElementById('added').value;//getting the values of the item in the element once the add button has been clicked
-    shopping.push(item);// adding the item to the array
-    let newItem = document.createElement('li');//create a list to 'store' the added
-    newItem.className = "added";//create the class name(looping?)
-    newItem.innerText = item;//writing the item added to the list element
-    let list = document.getElementById('list').appendChild(newItem);//adding the list to the unordered list
-    list.append()//adding the list to the DOM tree
-    document.getElementsByClassName('added').value = '';//trying to display the items on the webpage
 
-}
-function clearItem(){
-    let clear = document.getElementsByClassName('added');
-    clear.remove()//clear the displayed items
-    shopping = [];//clear the array
-}
-function purchasedItem(){
-    let item = document.getElementsByClassName('added').value;//getting the value in teh shopping list
-    if(shopping.includes(item)){
-        item.style.text-decoration ;'line-through';//strike-through the items purchased,if its on the list
+// Create an empty array to store the shopping list items
+const shoppingList = [];
+// Get the form and div elements
+const form = document.querySelector('form');
+const listDiv = document.querySelector('#itemsList');
+// Add an event listener to the form's submit event
+form.addEventListener('submit', handleSubmitItem);
+// Define the handleSubmit function
+function handleSubmitItem(event) {
+    event.preventDefault();
+    const todo = event.target.input.value.trim();
+    if (todo) {
+        addTodoToList(todo);
+        event.target.reset();
     }
-    //else{
-        //alert('Item not found in the list');
-    //}
 }
 
+// Define the addTodoToList function
+function addTodoToList(todo) {
+  // Create a new list item element
+    const listItem = document.createElement('li');
+    listItem.textContent = todo;
+  // Create buttons for marking as purchased and deleting
+    const purchasedBtn = document.createElement('button');
+    purchasedBtn.textContent = 'Purchased';
+    purchasedBtn.addEventListener('click', handlePurchased);
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Clear';
+    deleteBtn.addEventListener('click', handleDelete);
+  // Add the buttons to the list item
+    listItem.appendChild(purchasedBtn);
+    listItem.appendChild(deleteBtn);
+  // Add the list item to the list
+    listDiv.appendChild(listItem);
+    listDiv.className = "right"
+  // Add the todo to the shopping list array
+    shoppingList.push(todo);
+    console.log(shoppingList);
+}
 
-document.addEventListener('submit',addItem)
-document.addEventListener('click',purchasedItem)
-document.addEventListener('click',clearItem)
-//console.log(shopping)
+// Define the handlePurchased function
+function handlePurchased(event) {
+    const listItem = event.target.parentNode;
+    listItem.classList='buy';
+}
 
+// Define the handleDelete function
+function handleDelete(event) {
+    const listItem = event.target.parentNode;
+    listItem.remove();
+}

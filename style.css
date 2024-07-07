@@ -8,21 +8,15 @@ button{
     text-align: justify;
     font-size: medium;
 }
-#added:hover{
-    background-color: rgb(47, 212, 58);
-    color: white;
-}
-#purchased:hover{
-    background-color: rgb(36, 78, 186);
-    color: white;
-}
-#cleared:hover{
-    background-color: rgb(208, 41, 23);
-    color: white;
-}
-#item{
-    width: 45vh;
-    height: 50px;
+
+#itemList{
+    padding: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    text-align: justify;
+    background-color: black;
+    color: aliceblue;
+    text-decoration: aqua;
 }
 h1 {
     padding: 20px;
@@ -45,4 +39,16 @@ p{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
     text-align: justify;
+}
+.buy{
+    text-decoration: line-through;
+    color: rgb(110, 195, 76);
+    font-size: 20px;
+    padding: 35px;
+}
+
+.right{
+    color:yellowgreen;
+    padding-left: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

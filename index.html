@@ -10,21 +10,13 @@
 <body>
     <h1>My Shopping List</h1>
     <p>You should you and get the items added in my list</p>
-    <form action="" id="form">
-        <label for="name"><em>Shopping list items</em></label><br />
-        <div>
-            <input type="text" id="item" name="item" required id=" item" placeholder="Enter items here">
-        </div>
-        <div >
-            <button id="added" type="submit">Add</button>
-        </div>
-        <div>
-            <button type="button" type = "submit" purchased">Purchased</button>
-        </div>
-        <div>
-            <button type="reset" id="cleared">Clear</button>
-        </div>
+    <form id="form">
+        <label id="label" for="new shopping item">Shopping list Item</label>
+        <input id="input" type="text" id="input" placeholder="Shop Now!"/>
+        <input id="submit" type="submit" value="Added"/>
     </form>
-    <ul id="list"></ul>
+    <div id="itemsList">
+        <h4>Shopping Items</h4>
+    </div>
 </body>
 </html>
